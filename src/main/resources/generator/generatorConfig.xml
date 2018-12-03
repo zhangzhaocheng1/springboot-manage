@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+    <context id="Mysql" targetRuntime="MyBatis3Simple" defaultModelType="flat">
+        <property name="beginningDelimiter" value="`"/>
+        <property name="endingDelimiter" value="`"/>
+        <!--引入通用mapper的支持-->
+        <plugin type="tk.mybatis.mapper.generator.MapperPlugin">
+            <property name="mappers" value="tk.mybatis.mapper.common.Mapper"/>
+            <property name="caseSensitive" value="true"/>
+        </plugin>
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://127.0.0.1:3306/product_manage"
+                        userId="root"
+                        password="xdrcft56">
+        </jdbcConnection>
+        <javaModelGenerator targetPackage="com.zzc.tk.model" targetProject="src/main/java"/>
+
+        <sqlMapGenerator targetPackage="mapper" targetProject="src/main/resources"/>
+
+        <javaClientGenerator targetPackage="com.zzc.tk.mapper" targetProject="src/main/java"
+                             type="XMLMAPPER"/>
+        <table tableName="kuaidi100_delivery" domainObjectName="TBDelivery"/>
+        <table tableName="tb_category" domainObjectName="TBCategory"/>
+        <table tableName="tb_item" domainObjectName="TBItem"/>
+        <table tableName="tb_re_item" domainObjectName="TBReItem"/>
+        <table tableName="tb_order" domainObjectName="TBOrder"/>
+        <table tableName="tb_user" domainObjectName="TBUser"/>
+        <table tableName="tb_order_item" domainObjectName="TBOrderItem"/>
+        <table tableName="tb_order_shipping" domainObjectName="TBOrderShipping"/>
+
+    </context>
+</generatorConfiguration>
